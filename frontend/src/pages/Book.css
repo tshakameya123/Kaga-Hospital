@@ -1,0 +1,64 @@
+.booking-page {
+  min-height: 100vh;
+  /* Soft, professional teal-blue gradient */
+  background: linear-gradient(
+    180deg,
+    #f3fbfb 0%,
+    #e8f6f9 30%,
+    #dff0f6 60%,
+    #eaf7fb 100%
+  );
+  color: #042033;
+}
+
+/* Subtle radial highlight near the form area */
+.booking-page::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 16%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 40%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.25) 35%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  filter: blur(42px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content sits above the highlight */
+.booking-page .container,
+.booking-page .page-header,
+.booking-page .two-column {
+  position: relative;
+  z-index: 1;
+}
+
+/* Slightly adjust page header color for contrast */
+.booking-page .page-header h1,
+.booking-page .page-header p {
+  color: #042033;
+}
+
+/* Optional: gentle card background for form/calendar panels */
+.booking-page .booking-form,
+.booking-page .calendar-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 18px;
+}
+
+@media (max-width: 900px) {
+  .booking-page::before {
+    display: none; /* hide large highlight on small screens */
+  }
+  .booking-page .booking-form,
+  .booking-page .calendar-panel {
+    background: white; /* keep panels readable */
+  }
+}

@@ -1,0 +1,131 @@
+.landing-hero {
+  position: relative;
+  overflow: visible;
+  /* reduced vertical padding so heading sits tighter with the hero image */
+  padding: 24px 0;
+}
+
+.landing-page .landing-hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  position: relative;
+}
+
+.landing-page .landing-hero-text {
+  z-index: 3; /* ensure text sits above the image */
+  max-width: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Image container - allow image to grow and sit behind text slightly */
+.landing-page .landing-hero-image {
+  position: relative;
+  z-index: 1;
+  /* reduce the hero column by ~15% to tighten the layout */
+  flex: 0 0 51%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.landing-page .landing-hero-image .landing-img {
+  /* scaled down by ~15% from previous (170% -> ~145%) */
+  width: 145%;
+  max-width: 1300px; /* reduced cap to match visual size */
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  /* base shadow + stronger white glow with a leftward bias (50% stronger) */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15),
+    -8px 0 34px rgba(255, 255, 255, 0.36),
+    /* left-offset, stronger glow */ 0 0 28px rgba(255, 255, 255, 0.24);
+  /* filter drop-shadow to follow image alpha; add a left-offset drop-shadow for directionality */
+  filter: drop-shadow(-6px 0 18px rgba(255, 255, 255, 0.27))
+    drop-shadow(0 0 14px rgba(255, 255, 255, 0.18));
+  /* strongly fade the edges left and right so the image blends into the page */
+  /* widen fade region for a stronger blend */
+  -webkit-mask-image: linear-gradient(
+    to left,
+    transparent 0%,
+    black 45%,
+    black 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to left,
+    transparent 0%,
+    black 45%,
+    black 55%,
+    transparent 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  /* stronger blend into background: increase left bias drop-shadow and use overlay for stronger mixing */
+  mix-blend-mode: overlay;
+  opacity: 0.92;
+  /* increase left drop-shadow to emphasize blended halo */
+  filter: drop-shadow(-10px 0 22px rgba(255, 255, 255, 0.34))
+    drop-shadow(0 0 14px rgba(255, 255, 255, 0.18));
+  transform: translateX(
+    -20%
+  ); /* shift left slightly less after reduction so it centers visually */
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 220ms ease;
+}
+
+/* hover effect removed per request */
+
+/* Make the overlap subtle on small screens */
+@media (max-width: 900px) {
+  .landing-page .landing-hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .landing-page .landing-hero-text {
+    max-width: 100%;
+    z-index: 3;
+    align-items: center;
+  }
+  .landing-page .landing-hero-image {
+    width: 100%;
+  }
+  .landing-page .landing-hero-image .landing-img {
+    width: 100%;
+    transform: translateX(0);
+    -webkit-mask-image: none;
+    mask-image: none;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .landing-hero {
+    padding: 16px 0;
+  }
+  .landing-page .landing-hero-image .landing-img {
+    border-radius: 6px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* CTA layout for landing page */
+.landing-page .landing-cta-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* Small tweak: ensure headings and subtitle spacing looks tidy */
+.landing-page .landing-hero-text h1 {
+  margin: 6px 0 8px;
+}
+
+.landing-page .landing-hero-text p.landing-subtitle {
+  margin-bottom: 12px;
+}
