@@ -1,0 +1,211 @@
+/* ========================================
+   COMPONENT-SPECIFIC STYLES
+   Additional styling for specific components
+   ======================================== */
+
+/* ========================================
+   BOOKING FORM PANEL
+   ======================================== */
+.booking-form {
+  background-color: var(--white); /* White card background */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 30px; /* Internal spacing */
+  box-shadow: var(--shadow); /* Subtle shadow for depth */
+  height: fit-content; /* Only as tall as content */
+  border-top: 4px solid var(--primary-blue); /* Blue accent bar at top */
+}
+
+/* Booking Form Heading */
+.booking-form h2 {
+  margin-bottom: 25px; /* Space below heading */
+  color: var(--text-dark); /* Dark text */
+  font-size: 1.8rem; /* Large heading */
+}
+
+/* ========================================
+   CALENDAR PANEL (Right side of booking page)
+   ======================================== */
+.calendar-panel {
+  background-color: var(--white); /* White card background */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 30px; /* Internal spacing */
+  box-shadow: var(--shadow); /* Subtle shadow */
+  height: fit-content; /* Only as tall as content */
+  border-top: 4px solid var(--primary-blue); /* Blue accent bar at top */
+}
+
+/* Calendar Panel Heading */
+.calendar-panel h3 {
+  margin-bottom: 20px; /* Space below heading */
+  color: var(--text-dark); /* Dark text */
+  text-align: center; /* Center the heading */
+}
+
+/* ========================================
+   FORM BUTTON CONTAINER
+   ======================================== */
+.form-buttons {
+  display: flex; /* Flexbox layout */
+  gap: 15px; /* Space between buttons */
+  margin-top: 30px; /* Space above button group */
+}
+
+/* ========================================
+   FORM VALIDATION & MESSAGES
+   ======================================== */
+/* Error message below invalid input fields */
+.form-validation-error {
+  color: var(--danger-red); /* Red text for errors */
+  font-size: 14px; /* Smaller text */
+  margin-top: 5px; /* Small space above */
+}
+
+/* Success message box (e.g., appointment booked) */
+.success-message {
+  background-color: #e8f5e9; /* Light green background */
+  border: 1px solid var(--action-green); /* Green border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 15px; /* Internal spacing */
+  margin-bottom: 20px; /* Space below */
+  color: var(--action-green); /* Green text */
+  text-align: center; /* Center text */
+}
+
+/* Error message box (general errors) */
+.error-message {
+  background-color: #ffebee; /* Light red background */
+  border: 1px solid var(--danger-red); /* Red border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 15px; /* Internal spacing */
+  margin-bottom: 20px; /* Space below */
+  color: var(--danger-red); /* Red text */
+  text-align: center; /* Center text */
+}
+
+/* ========================================
+   LOADING SPINNER
+   ======================================== */
+/* Animated spinner for loading states */
+.loading-spinner {
+  border: 3px solid var(--border-color); /* Light grey circle */
+  border-top: 3px solid var(--primary-blue); /* Blue spinning section */
+  border-radius: 50%; /* Perfect circle */
+  width: 30px; /* Spinner size */
+  height: 30px; /* Spinner size */
+  animation: spin 1s linear infinite; /* Continuous rotation */
+  margin: 20px auto; /* Center with spacing */
+}
+
+/* Spin animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Start position */
+  }
+  100% {
+    transform: rotate(360deg); /* Full rotation */
+  }
+}
+
+/* ========================================
+   APPOINTMENT TOOLTIP (Hover popup)
+   ======================================== */
+/* Tooltip that appears when hovering over appointment cards */
+.appointment-tooltip {
+  position: absolute; /* Positioned relative to parent */
+  background-color: var(--text-dark); /* Dark background */
+  color: var(--white); /* White text */
+  padding: 10px; /* Internal spacing */
+  border-radius: var(--border-radius); /* Rounded corners */
+  font-size: 14px; /* Smaller text */
+  z-index: 1000; /* Above other elements */
+  max-width: 200px; /* Limit width */
+  box-shadow: var(--shadow); /* Subtle shadow */
+}
+
+/* ========================================
+   DOCTOR AVAILABILITY INDICATOR
+   ======================================== */
+/* Shows which days doctor is available on calendar */
+.doctor-availability {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Vertically center items */
+  gap: 5px; /* Space between indicator and text */
+  margin-top: 10px; /* Space above */
+  font-size: 14px; /* Smaller text */
+}
+
+/* Green dot indicator */
+.availability-indicator {
+  width: 12px; /* Dot size */
+  height: 12px; /* Dot size */
+  border-radius: 50%; /* Perfect circle */
+  background-color: var(--action-green); /* Green dot */
+}
+
+/* ========================================
+   PAGE HEADER (Top section of pages)
+   ======================================== */
+/* Header section at top of booking and other pages */
+.page-header {
+  text-align: center; /* Center all text */
+  margin-bottom: 40px; /* Space below header */
+  padding-top: 100px; /* Space for fixed navbar */
+}
+
+/* Main page heading */
+.page-header h1 {
+  font-size: 2.5rem; /* Large heading */
+  color: var(--text-dark); /* Dark text */
+  margin-bottom: 10px; /* Space below */
+}
+
+/* Page subtitle/description */
+.page-header p {
+  color: var(--text-light); /* Light grey text */
+  font-size: 1.1rem; /* Medium size */
+}
+
+/* ========================================
+   END OF COMPONENT STYLES
+   ======================================== */
+
+/* Responsive tweaks for smaller screens to ensure consistent spacing */
+@media (max-width: 768px) {
+  .page-header {
+    padding-top: 60px; /* less top spacing to account for mobile navbar */
+    margin-bottom: 24px;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem; /* reduce heading size on tablet/mobile */
+  }
+
+  .booking-form,
+  .calendar-panel {
+    padding: 16px; /* smaller padding on mobile to fit screens */
+  }
+
+  .form-buttons {
+    flex-direction: column; /* stack form action buttons vertically on small screens */
+    gap: 12px;
+  }
+
+  .form-input,
+  .form-select {
+    font-size: 15px; /* slightly smaller inputs on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    padding-top: 48px;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .booking-form h2 {
+    font-size: 1.2rem;
+  }
+}

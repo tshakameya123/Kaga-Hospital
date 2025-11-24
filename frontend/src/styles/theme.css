@@ -1,0 +1,1245 @@
+/* ========================================
+   GLOBAL THEME STYLES - Color Variables
+   ======================================== */
+:root {
+  /* Primary Colors - Blue Theme */
+  --primary-blue: #1976d2; /* Main brand color - used for headers, primary elements */
+  --light-blue: #42a5f5; /* Lighter shade for hover states and highlights */
+  --dark-blue: #0d47a1; /* Darker shade for text and accents */
+  --sky-blue: #e3f2fd; /* Very light blue for backgrounds */
+
+  /* Action Colors - Green for buttons only */
+  --action-green: #2e7d32; /* Primary green for action buttons (Book, Submit, etc.) */
+  --action-green-hover: #4caf50; /* Lighter green for hover states on buttons */
+  --primary-green: #2e7d32; /* Primary green - same as action-green */
+
+  /* Neutral Colors */
+  --white: #ffffff; /* Pure white for cards and backgrounds */
+  --light-grey: #f5f7fa; /* Light grey for page backgrounds */
+  --border-color: #e0e0e0; /* Subtle borders for inputs and cards */
+
+  /* Text Colors */
+  --text-dark: #333333; /* Primary text color */
+  --text-light: #666666; /* Secondary text color */
+  --text-blue: #1976d2; /* Blue text for links and emphasis */
+
+  /* Danger Color */
+  --danger-red: #d32f2f; /* For cancel/delete actions */
+  --danger-red-hover: #b71c1c; /* Darker red for hover states */
+
+  /* Effects and Transitions */
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Standard shadow for cards */
+  --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  --shadow-blue: 0 4px 16px rgba(25, 118, 210, 0.2); /* Blue-tinted shadow */
+  --border-radius: 8px; /* Consistent border radius */
+  --transition: all 0.3s ease; /* Smooth transitions for all animations */
+  color-scheme: light;
+}
+
+/* ========================================
+   GLOBAL RESET & BASE STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding doesn't affect element width */
+}
+
+body {
+  font-family: "Poppins", sans-serif; /* Professional, modern font from Google Fonts */
+  background-color: var(--light-grey); /* Soft blue-grey background */
+  color: var(--text-dark); /* Dark text for readability */
+  line-height: 1.6; /* Comfortable line spacing */
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  color-scheme: light;
+}
+
+/* ========================================
+   CONTAINER UTILITIES
+   ======================================== */
+.container {
+  max-width: 1200px; /* Maximum width for content */
+  margin: 0 auto; /* Center the container */
+  padding: 0 20px; /* Horizontal padding for spacing */
+}
+
+.centered-container {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px; /* Breathing room on all sides */
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+.btn {
+  padding: 12px 24px; /* Comfortable padding */
+  border: none; /* Remove default border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  font-family: inherit; /* Use page font */
+  font-size: 16px; /* Readable size */
+  font-weight: 500; /* Medium weight */
+  cursor: pointer; /* Show it's clickable */
+  transition: var(--transition); /* Smooth animations */
+  text-decoration: none; /* Remove underline for link buttons */
+  display: inline-block; /* Allow padding and margins */
+  text-align: center; /* Center text */
+}
+
+/* Primary Button - GREEN for action buttons (Book, Submit, Confirm) */
+.btn-primary {
+  background-color: var(--action-green); /* Green for primary actions */
+  color: var(--white); /* White text */
+}
+
+.btn-primary:hover {
+  background-color: var(--action-green-hover); /* Lighter green on hover */
+  box-shadow: var(--shadow-hover); /* Lift effect */
+  transform: translateY(-2px); /* Slight upward movement */
+}
+
+/* Secondary Button - BLUE outline for secondary actions */
+.btn-secondary {
+  background-color: transparent; /* Transparent background */
+  color: var(--primary-blue); /* Blue text */
+  border: 2px solid var(--primary-blue); /* Blue border */
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-blue); /* Fill with blue on hover */
+  color: var(--white); /* White text on hover */
+}
+
+/* Danger Button - RED for destructive actions (Cancel, Delete) */
+.btn-danger {
+  background-color: var(--danger-red); /* Red for dangerous actions */
+  color: var(--white); /* White text */
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-red-hover); /* Darker red on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+.form-group {
+  margin-bottom: 20px; /* Space between form fields */
+}
+
+.form-label {
+  display: block; /* Label on its own line */
+  margin-bottom: 8px; /* Space below label */
+  font-weight: 500; /* Medium weight for emphasis */
+  color: var(--text-dark); /* Dark text color */
+}
+
+/* Text Input Fields */
+.form-input {
+  width: 100%; /* Full width of container */
+  padding: 12px 16px; /* Comfortable padding */
+  border: 2px solid var(--border-color); /* Subtle border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  font-family: inherit; /* Match page font */
+  font-size: 16px; /* Readable size */
+  transition: var(--transition); /* Smooth transitions */
+  background-color: var(--white); /* White background */
+}
+
+/* Focus State - Blue highlight when user clicks on input */
+.form-input:focus {
+  outline: none; /* Remove default outline */
+  border-color: var(--primary-blue); /* Blue border on focus */
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1); /* Blue glow effect */
+}
+
+/* Dropdown/Select Fields */
+.form-select {
+  width: 100%; /* Full width */
+  padding: 12px 16px; /* Comfortable padding */
+  border: 2px solid var(--border-color); /* Subtle border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  font-family: inherit; /* Match page font */
+  font-size: 16px; /* Readable size */
+  background-color: var(--white); /* White background */
+  cursor: pointer; /* Show it's clickable */
+}
+
+/* Focus State for Dropdowns */
+.form-select:focus {
+  outline: none; /* Remove default outline */
+  border-color: var(--primary-blue); /* Blue border on focus */
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1); /* Blue glow effect */
+}
+
+/* ========================================
+   RADIO BUTTON STYLES
+   ======================================== */
+.radio-group {
+  display: flex; /* Arrange radio buttons horizontally */
+  gap: 20px; /* Space between options */
+  margin-top: 8px; /* Space from label */
+}
+
+.radio-item {
+  display: flex; /* Align radio with label */
+  align-items: center; /* Center vertically */
+  gap: 8px; /* Space between radio and label */
+}
+
+.radio-item input[type="radio"] {
+  width: 18px; /* Radio button size */
+  height: 18px; /* Radio button size */
+  accent-color: var(--primary-blue); /* Blue color for selected radio */
+}
+
+/* ========================================
+   CARD STYLES
+   ======================================== */
+.card {
+  background-color: var(--white); /* White card background */
+  border-radius: var(--border-radius); /* Rounded corners */
+  box-shadow: var(--shadow); /* Subtle shadow for depth */
+  padding: 24px; /* Internal spacing */
+  transition: var(--transition); /* Smooth hover effects */
+}
+
+/* Hover effect - lift the card slightly */
+.card:hover {
+  box-shadow: var(--shadow-hover); /* Enhanced shadow on hover */
+}
+
+/* ========================================
+   NAVIGATION BAR STYLES
+   ======================================== */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blur effect behind navbar */
+  box-shadow: var(--shadow); /* Subtle shadow */
+  position: fixed; /* Stay at top of page */
+  top: 0; /* Stick to top */
+  left: 0; /* Full width start */
+  right: 0; /* Full width end */
+  z-index: 1000; /* Above other content */
+  padding: 12px 0; /* Vertical padding */
+}
+
+/* Navbar Content Layout */
+.navbar-content {
+  display: flex; /* Flexbox for horizontal layout */
+  justify-content: space-between; /* Space between logo and nav links */
+  align-items: center; /* Vertically center items */
+}
+
+/* Logo/Brand Styling */
+.navbar-brand {
+  font-size: 24px; /* Large, prominent size */
+  font-weight: 700; /* Bold weight */
+  color: var(--primary-blue); /* Blue brand color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Navigation Links Container */
+.navbar-nav {
+  display: flex; /* Horizontal layout */
+  list-style: none; /* Remove bullet points */
+  gap: 30px; /* Space between links */
+}
+
+/* Individual Navigation Links */
+.navbar-nav a {
+  color: var(--text-dark); /* Dark text */
+  text-decoration: none; /* No underline */
+  font-weight: 500; /* Medium weight */
+  transition: var(--transition); /* Smooth hover effects */
+  padding: 8px 16px; /* Clickable area */
+  border-radius: var(--border-radius); /* Rounded on hover */
+}
+
+/* Hover Effect for Nav Links */
+.navbar-nav a:hover {
+  color: var(--primary-blue); /* Blue text on hover */
+  background-color: rgba(25, 118, 210, 0.1); /* Light blue background */
+}
+
+/* Mobile Menu Toggle Button (hidden on desktop) */
+.navbar-toggle {
+  display: none; /* Hidden by default */
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 24px; /* Large icon */
+  cursor: pointer; /* Show it's clickable */
+  color: var(--primary-blue); /* Blue color */
+}
+
+/* ========================================
+   HERO SECTION - Homepage Banner
+   ======================================== */
+.hero {
+  /* Blue gradient overlay on background pattern */
+  background: linear-gradient(rgba(25, 118, 210, 0.85), rgba(13, 71, 161, 0.9)),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e3f2fd" width="1200" height="600"/><circle fill="%2390caf9" cx="200" cy="150" r="60"/><circle fill="%2364b5f6" cx="1000" cy="100" r="80"/><rect fill="%23ffffff" x="300" y="200" width="600" height="200" rx="20"/></svg>');
+  background-size: cover; /* Cover entire area */
+  background-position: center; /* Center the background */
+  min-height: 100vh; /* Full viewport height minimum */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  color: var(--white); /* White text */
+  padding: 120px 20px 80px; /* Space for navbar + content padding */
+}
+
+/* Hero Content Container - Two Column Layout */
+.hero-content {
+  display: flex; /* Flexbox for side-by-side layout */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space between text and image */
+  max-width: 1200px; /* Limit maximum width */
+  width: 100%; /* Full width up to max */
+  gap: 60px; /* Space between text and image */
+  flex-wrap: wrap; /* Wrap on smaller screens */
+}
+
+/* Hero Text Section (Left Side) */
+.hero-text {
+  flex: 1; /* Take up available space */
+  min-width: 300px; /* Minimum width before wrapping */
+  text-align: left; /* Left-align text */
+}
+
+/* Hero Main Heading */
+.hero-text h1 {
+  font-size: 3.5rem; /* Large, impactful size */
+  font-weight: 700; /* Bold weight */
+  margin-bottom: 20px; /* Space below heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: hero-text-in 1.1s cubic-bezier(0.7, 0.2, 0.2, 1) 0.3s forwards;
+}
+
+.hero-text p {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: hero-text-in 1.1s cubic-bezier(0.7, 0.2, 0.2, 1) 0.45s forwards;
+}
+
+.hero-text .btn-primary {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: hero-text-in 1.1s cubic-bezier(0.7, 0.2, 0.2, 1) 0.6s forwards;
+}
+
+@keyframes hero-text-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Subtitle/Description */
+.hero-text p {
+  font-size: 1.3rem; /* Large, readable size */
+  margin-bottom: 30px; /* Space before button */
+  max-width: 600px; /* Limit line length for readability */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Hero Image Section (Right Side) */
+.hero-image {
+  flex: 1; /* Take up available space */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center the image */
+  align-items: center; /* Center vertically */
+  min-width: 300px; /* Minimum width before wrapping */
+}
+
+/* Hero Image Styling */
+.hero-img {
+  width: 100%; /* Full width of container */
+  max-width: 650px; /* Larger image on desktop */
+  min-width: 320px;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Dramatic shadow */
+  object-fit: cover; /* Cover the area */
+  border: 5px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+  opacity: 0;
+  transform: translateX(-120px) scale(1.15);
+  animation: hero-img-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1) 0.2s forwards;
+}
+
+@keyframes hero-img-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px) scale(1.15);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(30px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* ========================================
+   CALENDAR SECTION STYLES
+   ======================================== */
+.calendar-section {
+  padding: 80px 0; /* Generous vertical padding */
+  background-color: var(--white); /* Clean white background */
+}
+
+/* Section Heading */
+.calendar-section h2 {
+  text-align: center; /* Center the heading */
+  margin-bottom: 40px; /* Space below heading */
+  font-size: 2.5rem; /* Large heading */
+  color: var(--text-dark); /* Dark text */
+}
+
+/* React Calendar Component Styling */
+.react-calendar {
+  width: 100%; /* Full width of container */
+  max-width: 600px; /* Maximum width for readability */
+  margin: 0 auto; /* Center the calendar */
+  background: var(--white); /* White background */
+  border: 2px solid var(--border-color); /* Subtle border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  box-shadow: var(--shadow); /* Subtle shadow for depth */
+  font-family: inherit; /* Match page font */
+}
+
+/* Calendar Navigation Bar (Month/Year selector) */
+.react-calendar__navigation {
+  background-color: var(--primary-blue); /* Blue header bar */
+  margin-bottom: 1em; /* Space below navigation */
+  border-radius: var(--border-radius) var(--border-radius) 0 0; /* Round top corners */
+}
+
+/* Navigation Buttons (Previous/Next month) */
+.react-calendar__navigation button {
+  color: var(--white); /* White text */
+  font-weight: 600; /* Semi-bold */
+  font-size: 16px; /* Readable size */
+}
+
+/* Navigation Button Hover */
+.react-calendar__navigation button:hover {
+  background-color: var(--light-blue); /* Lighter blue on hover */
+}
+
+/* Individual Calendar Date Tiles */
+.react-calendar__tile {
+  padding: 12px; /* Comfortable padding */
+  background: none; /* Transparent background */
+  border: none; /* No border */
+  font-size: 14px; /* Readable size */
+  transition: var(--transition); /* Smooth hover effects */
+}
+
+/* Calendar Tile Hover State */
+.react-calendar__tile:hover {
+  background-color: var(--sky-blue); /* Light blue on hover */
+}
+
+/* Currently Selected Date */
+.react-calendar__tile--active {
+  background-color: var(--primary-blue) !important; /* Blue background */
+  color: var(--white); /* White text */
+}
+
+/* Dates with Appointments - marked with border and light background */
+.react-calendar__tile--hasAppointment {
+  background-color: rgba(25, 118, 210, 0.1); /* Light blue tint */
+  border: 2px solid var(--primary-blue); /* Blue border */
+}
+
+/* Doctor's Available Days - highlighted for scheduling */
+.available-day {
+  background-color: rgba(46, 125, 50, 0.1) !important; /* Light green tint */
+  border: 2px solid var(--primary-green) !important; /* Green border */
+  font-weight: 600 !important;
+}
+
+/* ========================================
+   MODAL/POPUP STYLES
+   ======================================== */
+/* Dark overlay that covers the page when modal is open */
+.modal-overlay {
+  position: fixed; /* Cover entire viewport */
+  top: 0; /* Start from top */
+  left: 0; /* Start from left */
+  right: 0; /* Stretch to right */
+  bottom: 0; /* Stretch to bottom */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 2000; /* Above all other content */
+}
+
+/* Modal Box/Card */
+.modal {
+  background-color: var(--white); /* White background */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 30px; /* Internal spacing */
+  max-width: 500px; /* Maximum width */
+  width: 90%; /* Responsive width */
+  box-shadow: var(--shadow-hover); /* Prominent shadow */
+  animation: modalSlideIn 0.3s ease; /* Slide-in animation */
+  border-top: 4px solid var(--primary-blue); /* Blue accent bar at top */
+}
+
+/* Animation for modal appearance */
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px); /* Start above final position */
+    opacity: 0; /* Start invisible */
+  }
+  to {
+    transform: translateY(0); /* End at final position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Modal Heading */
+.modal h3 {
+  margin-bottom: 20px; /* Space below heading */
+  color: var(--text-dark); /* Dark text */
+}
+
+/* Modal Button Container */
+.modal-buttons {
+  display: flex; /* Flexbox layout */
+  gap: 15px; /* Space between buttons */
+  justify-content: flex-end; /* Align buttons to right */
+  margin-top: 20px; /* Space above buttons */
+}
+
+/* ========================================
+   TWO COLUMN LAYOUT (Form + Calendar)
+   ======================================== */
+.two-column {
+  display: grid; /* CSS Grid layout */
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 40px; /* Space between columns */
+  align-items: start; /* Align items to top */
+}
+
+/* ========================================
+   TIME SLOT SELECTOR
+   ======================================== */
+.time-selector {
+  margin-top: 20px; /* Space above time selector */
+}
+
+/* Grid of Available Time Slots */
+.time-grid {
+  display: grid; /* CSS Grid */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(100px, 1fr)
+  ); /* Responsive columns */
+  gap: 10px; /* Space between slots */
+  margin-top: 15px; /* Space above grid */
+}
+
+/* Individual Time Slot Button */
+.time-slot {
+  padding: 10px; /* Internal spacing */
+  background-color: var(--white); /* White background */
+  border: 2px solid var(--border-color); /* Subtle border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  text-align: center; /* Center the time text */
+  cursor: pointer; /* Show it's clickable */
+  transition: var(--transition); /* Smooth hover effects */
+}
+
+/* Time Slot Hover Effect */
+.time-slot:hover {
+  border-color: var(--primary-blue); /* Blue border on hover */
+  background-color: rgba(25, 118, 210, 0.1); /* Light blue background */
+}
+
+/* Selected Time Slot - GREEN to indicate action */
+.time-slot.selected {
+  background-color: var(--action-green); /* Green background when selected */
+  color: var(--white); /* White text */
+  border-color: var(--action-green); /* Green border */
+}
+
+/* ========================================
+   APPOINTMENT CARD COMPONENT
+   ======================================== */
+.appointment-card {
+  background-color: var(--white); /* White card background */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 20px; /* Internal spacing */
+  margin-bottom: 15px; /* Space between cards */
+  box-shadow: var(--shadow); /* Subtle shadow */
+  border-left: 4px solid var(--primary-blue); /* Blue accent bar on left */
+  transition: var(--transition); /* Smooth hover effects */
+}
+
+/* Appointment Card Hover Effect - slight lift */
+.appointment-card:hover {
+  box-shadow: var(--shadow-hover); /* Enhanced shadow */
+  transform: translateY(-2px); /* Lift up slightly */
+}
+
+/* Appointment Card Header (Time + Cancel Button) */
+.appointment-header {
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between time and button */
+  align-items: center; /* Vertically center items */
+  margin-bottom: 10px; /* Space below header */
+}
+
+/* Appointment Time Display */
+.appointment-time {
+  font-weight: 600; /* Semi-bold */
+  color: var(--primary-blue); /* Blue color to match theme */
+  font-size: 18px; /* Prominent size */
+}
+
+/* Appointment Details Text */
+.appointment-details p {
+  margin-bottom: 5px; /* Space between lines */
+  color: var(--text-light); /* Light grey text */
+}
+
+/* ========================================
+   LANDING PAGE STYLES (New Welcome/Login Page)
+   ======================================== */
+
+/* Landing Page Container */
+.landing-page {
+  min-height: 100vh;
+  background-color: var(--white);
+}
+
+/* Landing Hero Section */
+.landing-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue) 0%,
+    var(--light-blue) 100%
+  );
+  padding: 80px 0 100px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+  opacity: 0.5;
+}
+
+.landing-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.landing-hero-text {
+  flex: 1;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.landing-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--white);
+}
+
+.landing-hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.landing-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  opacity: 0.95;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.landing-cta-buttons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.landing-subtext {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.landing-hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 1s ease-out;
+}
+
+.landing-img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Services Section */
+.landing-services {
+  padding: 100px 0;
+  background-color: var(--light-grey);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.service-card {
+  background-color: var(--white);
+  padding: 40px 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-blue);
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Features Section */
+.landing-features {
+  padding: 100px 0;
+  background-color: var(--white);
+}
+
+.features-content {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+
+.features-text {
+  flex: 1;
+}
+
+.features-text h2 {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.features-text > p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.features-list {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+
+.features-list img {
+  width: 24px;
+  height: 24px;
+  background-color: var(--action-green);
+  border-radius: 50%;
+  padding: 4px;
+  filter: brightness(0) invert(1);
+}
+
+.features-stats {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+  padding: 40px 25px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  color: var(--white);
+  box-shadow: var(--shadow-blue);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(25, 118, 210, 0.3);
+}
+
+.stat-card h3 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+/* Landing Page Modals */
+.landing-modal {
+  max-width: 450px;
+  width: 90%;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal-header h3 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.modal-header p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-light);
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background-color: var(--light-grey);
+  color: var(--text-dark);
+}
+
+.modal-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.modal-footer p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design for Landing Page */
+@media (max-width: 968px) {
+  .landing-hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .landing-hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .landing-cta-buttons {
+    justify-content: center;
+  }
+
+  .features-content {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .features-stats {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-hero {
+    padding: 60px 0 80px;
+  }
+
+  .landing-hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-large {
+    padding: 14px 30px;
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   OLD LOGIN PAGE STYLES (Keep for compatibility)
+   ======================================== */
+/* Full-Page Login Container */
+.login-container {
+  background: linear-gradient(
+    135deg,
+    var(--sky-blue) 0%,
+    /* Light blue gradient start */ var(--white) 100% /* White gradient end */
+  );
+  min-height: 100vh; /* Full viewport height */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+}
+
+/* Login Card/Box */
+.login-card {
+  background-color: var(--white); /* White background */
+  padding: 40px; /* Generous internal spacing */
+  border-radius: var(--border-radius); /* Rounded corners */
+  box-shadow: var(--shadow-hover); /* Prominent shadow */
+  width: 100%; /* Responsive width */
+  max-width: 400px; /* Maximum card width */
+  text-align: center; /* Center all text */
+  border-top: 4px solid var(--primary-blue); /* Blue accent bar at top */
+}
+
+/* Login Logo/Brand Icon */
+.login-logo {
+  font-size: 2.5rem; /* Large, prominent size */
+  font-weight: 700; /* Bold weight */
+  color: var(--primary-blue); /* Blue brand color */
+  margin-bottom: 10px; /* Space below logo */
+}
+
+/* Welcome Message */
+.login-welcome {
+  color: var(--text-light); /* Light grey text */
+  margin-bottom: 30px; /* Space before form */
+  font-size: 16px; /* Readable size */
+}
+
+/* Login Links Container (Create Account, Forgot Password) */
+.login-links {
+  text-align: center; /* Center the links */
+  margin-top: 20px; /* Space above links */
+}
+
+/* Individual Login Links */
+.login-links a {
+  color: var(--primary-blue); /* Blue links to match theme */
+  text-decoration: none; /* No underline by default */
+  margin: 0 10px; /* Space between links */
+  transition: var(--transition); /* Smooth hover effects */
+}
+
+/* Login Link Hover Effect */
+.login-links a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* ========================================
+   MOBILE MENU STYLES (Slide-in drawer)
+   ======================================== */
+/* Dark overlay behind mobile menu */
+.mobile-menu-overlay {
+  position: fixed; /* Cover entire viewport */
+  top: 0; /* Start from top */
+  left: 0; /* Start from left */
+  right: 0; /* Stretch to right */
+  bottom: 0; /* Stretch to bottom */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 1001; /* Above navbar */
+  display: flex; /* Flexbox layout */
+  justify-content: flex-end; /* Align menu to right side */
+}
+
+/* Mobile Menu Drawer (slides in from right) */
+.mobile-menu {
+  background-color: var(--white); /* White background */
+  width: 250px; /* Fixed width */
+  height: 100%; /* Full height */
+  padding: 80px 30px 30px; /* Padding (extra top for navbar) */
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1); /* Shadow on left side */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Stack links vertically */
+  gap: 20px; /* Space between links */
+}
+
+/* Mobile Menu Links */
+.mobile-menu a {
+  color: var(--text-dark); /* Dark text */
+  text-decoration: none; /* No underline */
+  font-weight: 500; /* Medium weight */
+  padding: 15px 0; /* Vertical padding */
+  border-bottom: 1px solid var(--border-color); /* Divider line */
+  transition: var(--transition); /* Smooth hover effects */
+}
+
+/* Mobile Menu Link Hover */
+.mobile-menu a:hover {
+  color: var(--primary-blue); /* Blue text on hover */
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - TABLET & MOBILE
+   ======================================== */
+/* Tablet and Small Desktop (768px and below) */
+@media (max-width: 768px) {
+  /* Hide desktop navigation, show mobile toggle */
+  .navbar-nav {
+    display: none; /* Hide desktop menu */
+  }
+
+  .navbar-toggle {
+    display: block; /* Show hamburger menu */
+  }
+
+  /* Hero responsive layout */
+  .hero-content {
+    flex-direction: column; /* Stack vertically */
+    gap: 40px; /* Reduce gap */
+    text-align: center; /* Center text on mobile */
+  }
+
+  .hero-text {
+    text-align: center; /* Center text */
+  }
+
+  /* Smaller hero text for tablets */
+  .hero-text h1 {
+    font-size: 2.5rem; /* Reduce heading size */
+  }
+
+  .hero-text p {
+    font-size: 1.1rem; /* Reduce paragraph size */
+    margin-left: auto; /* Center the paragraph */
+    margin-right: auto; /* Center the paragraph */
+  }
+
+  /* Hero image sizing for tablets */
+  .hero-img {
+    max-width: 400px; /* Smaller max width */
+  }
+
+  /* Stack two-column layout vertically */
+  .two-column {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 30px; /* Reduce gap */
+  }
+
+  /* Reduce container padding */
+  .container {
+    padding: 0 15px; /* Less horizontal padding */
+  }
+
+  /* Adjust modal for smaller screens */
+  .modal {
+    margin: 20px; /* Add margin */
+    width: auto; /* Auto width */
+  }
+
+  /* Stack modal buttons vertically */
+  .modal-buttons {
+    flex-direction: column; /* Vertical layout */
+  }
+
+  /* Smaller time slots */
+  .time-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(80px, 1fr)
+    ); /* Smaller slots */
+  }
+}
+
+/* Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  /* Hero adjustments for small screens */
+  .hero {
+    padding: 100px 15px 60px; /* Reduce padding */
+  }
+
+  /* Even smaller hero heading */
+  .hero-text h1 {
+    font-size: 2rem; /* Smaller heading */
+  }
+
+  .hero-text p {
+    font-size: 1rem; /* Smaller paragraph */
+  }
+
+  /* Hero image for mobile */
+  .hero-img {
+    max-width: 300px; /* Smaller image on mobile */
+  }
+
+  /* Reduce login card padding */
+  .login-card {
+    padding: 30px 20px; /* Less padding */
+    margin: 20px; /* Add margin */
+  }
+
+  /* Full-width buttons on mobile */
+  .btn {
+    width: 100%; /* Full width for easier tapping */
+    margin-bottom: 10px; /* Space between buttons */
+  }
+}
+
+/* ========================================
+   END OF THEME STYLES
+   ======================================== */
