@@ -7,7 +7,7 @@ const patientSchema = new mongoose.Schema({
         required: true 
     },
     dateOfBirth: {
-        type: date 
+        type: Date 
     },
     gender: {
         type: String,
@@ -17,14 +17,14 @@ const patientSchema = new mongoose.Schema({
         type: String
     },
     address: {
-        type: string 
+        type: String 
     },
     medicalHistory: {
-        type: string 
+        type: String 
     },
     createdAt: {
-        type: date,
-        default: date.now
+        type: Date,
+        default: Date.now
     }
 });
 
