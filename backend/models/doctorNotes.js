@@ -31,4 +31,4 @@ const doctorNotesSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('doctorNotes', prescriptionSchema);
+module.exports = mongoose.model('doctorNotes', doctorNotesSchema);
