@@ -11,7 +11,7 @@ const workScheduleSchema = new mongoose.Schema({
             type: String
         },
         slots: [{
-            type: string
+            type: String
         }]
     }],
     createdAt: {

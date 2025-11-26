@@ -11,15 +11,15 @@ const medicalStaffSchema = new mongoose.Schema({
         required: true 
     },
     phoneNumber: {
-        type: string 
+        type: String
     },
     email: {
-        type: string,
+        type: String,
         required: true,
         lowercase: true
     },
     bio: {
-        type: string
+        type: String
     }
 });
 

@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const authRoutes = require('./routes/auth.js');
 const appointmentRoutes = require('./routes/appointment.js');
 const bookingRoutes = require('./routes/booking.js');
 const doctorNotesRoutes = require('./routes/doctorNotes.js');
@@ -29,6 +30,7 @@ app.use(cors(corsOptions));
 app.use(cookieParser()); 
 
 //routes
+app.use('/api/auth', authRoutes);
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/doctorNotes', doctorNotesRoutes);

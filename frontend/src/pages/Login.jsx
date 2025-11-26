@@ -6,7 +6,7 @@ import './Login.css'
 
 const Login = () => {
   const navigate = useNavigate()
-  const { loginDoctor, loginPatient } = useUser()
+  const { loginDoctor, loginPatient, registerPatient } = useUser()
   
   const [loginMode, setLoginMode] = useState('landing')
   const [username, setUsername] = useState('')
@@ -41,7 +41,7 @@ const Login = () => {
    * Unified login handler
    * Checks if credentials match a doctor first, then treats as patient
    */
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
     const newErrors = {}
 
@@ -53,42 +53,36 @@ const Login = () => {
     if (Object.keys(newErrors).length === 0) {
       setIsLoading(true)
 
-      // Check if username matches a doctor
       const doctorUsernameLower = username.toLowerCase().trim()
       if (DOCTOR_REGISTRY[doctorUsernameLower]) {
         const doctorInfo = DOCTOR_REGISTRY[doctorUsernameLower]
-        
-        // Verify password matches
-        if (password === doctorInfo.password) {
-          // Login as doctor
-          if (loginDoctor(doctorInfo.name, password)) {
-            navigate('/doctors-portal')
-            return
-          }
+
+        const success = await loginDoctor(doctorUsernameLower, password)
+        if (success) {
+          navigate('/doctors-portal')
+          return
         } else {
-          setErrors({ password: 'Invalid password' })
+          setErrors({ general: 'Invalid doctor credentials' })
           setIsLoading(false)
           return
         }
       } else {
-        // Treat as patient login
-        // Patient can use email or username
-        // Validate password length
         if (password.length < 6) {
           setErrors({ password: 'Password must be at least 6 characters' })
           setIsLoading(false)
           return
         }
 
-        // Try to login patient account
-        if (loginPatient(username, password)) {
+        const success = await loginPatient(username, password)
+        if (success) {
           navigate('/home')
+          return
+        } else {
+          setErrors({ general: 'Invalid credentials' })
+          setIsLoading(false)
           return
         }
       }
-
-      setErrors({ general: 'Invalid credentials' })
-      setIsLoading(false)
     }
   }
 
@@ -96,7 +90,7 @@ const Login = () => {
    * Patient signup handler
    * Requires both username and email
    */
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault()
     const newErrors = {}
 
@@ -105,17 +99,14 @@ const Login = () => {
     if (!password) newErrors.password = 'Password is required'
     if (!confirmPassword) newErrors.confirmPassword = 'Please confirm password'
 
-    // Validate email format
     if (email && !/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = 'Please enter a valid email address'
     }
 
-    // Validate password length
     if (password && password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters'
     }
 
-    // Check if passwords match
     if (password && confirmPassword && password !== confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match'
     }
@@ -125,14 +116,19 @@ const Login = () => {
     if (Object.keys(newErrors).length === 0) {
       setIsLoading(true)
 
-      // Try to create patient account with username and email
-      if (loginPatient(email, password, username)) {
+      const result = await registerPatient({
+        name: username,
+        email,
+        password
+      })
+
+      if (result.success) {
         navigate('/home')
         return
+      } else {
+        setErrors({ general: result.message || 'Unable to create account. Please try again.' })
+        setIsLoading(false)
       }
-
-      setErrors({ general: 'Unable to create account. Please try again.' })
-      setIsLoading(false)
     }
   }
 
